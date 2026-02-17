@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: tracker-app
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_VERSION=1.0.0
+    networks:
+      - devops-net
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - devops-net
+
+networks:
+  devops-net:
