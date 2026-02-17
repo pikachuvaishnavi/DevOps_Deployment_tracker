@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/devops-project
+            cd ~/DevOps_Deployment_tracker
             docker-compose down
             docker-compose pull
             docker-compose up -d
